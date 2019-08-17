@@ -1,0 +1,2 @@
+# FreeexGraphql
+FreeexWallet Graphql Server
