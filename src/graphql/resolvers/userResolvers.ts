@@ -149,7 +149,7 @@ const userResolvers = {
 
       const result = await findUserByEmail(email);
 
-      let user = {}
+      let user = {};
       if (result.length > 0) {
         const idx = result[0].idx;
         const hash = result[0].pin_code;
