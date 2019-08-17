@@ -1,7 +1,7 @@
-import testSchemas from './testSchemas';
+import userSchemas from './userSchemas';
 
 const typeDefs = [
-  testSchemas,
+  userSchemas,
 ];
 
 export default typeDefs;

@@ -1,7 +1,7 @@
-import testResolvers from './testResolvers';
+import userResolvers from './userResolvers';
 
 const resolvers = {
-  ...testResolvers,
+  ...userResolvers,
 };
 
 export default resolvers;

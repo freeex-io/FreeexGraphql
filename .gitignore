@@ -4,3 +4,4 @@ dist
 yarn.lock
 src/config/dbInfo.ts
 src/config/serverInfo.ts
+src/config/verifyConfig.ts

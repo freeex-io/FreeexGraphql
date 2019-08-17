@@ -13,18 +13,19 @@ const pool = mysql.createPool({
   database,
 });
 
-const query = (sql: string, values: any): Promise<any> => {
+const query = (sql: string, values?: any): Promise<any> => {
   return new Promise((resolve, reject) => {
     pool.getConnection((error, connection) => {
       if (error) {
         reject(error);
       } else {
-        connection.query(sql, values, (error, rows) => {
+        const qr = connection.query(sql, values, (error, rows) => {
           if (error) {
             reject(error);
           } else {
             resolve(rows);
           }
+          console.log(qr.sql);
 
           connection.release();
         });
