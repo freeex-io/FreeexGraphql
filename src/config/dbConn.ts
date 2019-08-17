@@ -3,13 +3,14 @@ import dbInfo from '../config/dbInfo';
 
 const environment = process.env.NODE_ENV === 'development' ? 'dev' : 'prod';
 const dbEnv = dbInfo(environment);
+const { host, port, user, password, database } = dbEnv;
 
 const pool = mysql.createPool({
-  host: dbEnv.host,
-  port: dbEnv.port,
-  user: dbEnv.user,
-  password: dbEnv.password,
-  database: dbEnv.database,
+  host,
+  port,
+  user,
+  password,
+  database,
 });
 
 const query = (sql: string, values: any): Promise<any> => {

@@ -12,6 +12,7 @@ import serverInfo from '../config/serverInfo';
 const serverConn = (): void => {
   const environment = process.env.NODE_ENV === 'development' ? 'dev' : 'prod';
   const serverEnv = serverInfo(environment);
+  const { url, port } = serverEnv;
 
   const schema = makeExecutableSchema({
     typeDefs,
@@ -41,8 +42,8 @@ const serverConn = (): void => {
   apollo.installSubscriptionHandlers(server);
 
   const serverConfig = {
-    url: serverEnv.host,
-    port: serverEnv.port,
+    url,
+    port,
   };
 
   const protocol = environment === 'dev' ? 'http' : 'https';
@@ -50,7 +51,7 @@ const serverConn = (): void => {
   server.listen(serverConfig, () => {
     console.log(
       '🚀 Server ready at',
-      `${protocol}://${serverEnv.host}:${serverEnv.port}${apollo.graphqlPath}`,
+      `${protocol}://${url}:${port}${apollo.graphqlPath}`,
     );
   });
 };
