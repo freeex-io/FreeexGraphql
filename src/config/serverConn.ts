@@ -26,8 +26,8 @@ const serverConn = (): void => {
   if (environment === 'prod') {
     server = https.createServer(
       {
-        key: fs.readFileSync('./ssl/server.ket'),
-        cert: fs.readFileSync('./ssl/server.crt'),
+        key: fs.readFileSync(serverEnv.key),
+        cert: fs.readFileSync(serverEnv.cert),
       },
       app,
     );
